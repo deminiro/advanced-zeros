@@ -1,7 +1,7 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
  if(number>=1 && number<=10^7 && base>=2 && base<=256){
-    
+    const originalBase = base;
     var divides = [];
     var j = 1;
     var i = 2;
@@ -30,7 +30,7 @@ module.exports = function getZerosCount(number, base) {
           break;
         }
       }
-      else if(j===20&&divides.length===0){
+      else if(j===20 && divides.length===0){
         divides.push(base);
       }
     }
@@ -43,8 +43,14 @@ module.exports = function getZerosCount(number, base) {
       divides.push(base);
       countOfTwo++;
     }
+    if(base === 1){
+      divides.pop();
     }
-
+    }
+    if(base === 2){
+      divides.push();
+      countOfTwo++;
+    }
     var countMultiplyOfTwo = 0;
     for(two=2;two<=number;two*=2){
     
@@ -66,7 +72,9 @@ module.exports = function getZerosCount(number, base) {
     numbers.sort(function(a, b) {
       return b - a;
     });
-
+    if(originalBase === 2){
+      return numbers[0];
+    }
     return numbers[1];
 }
 }
