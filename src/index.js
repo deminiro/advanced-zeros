@@ -11,28 +11,7 @@ module.exports = function getZerosCount(number, base) {
       t++;
       
       if(j<=19){
-        for(t;
-          base/t===1 || base/t===2 || base/t===3 || 
-          base/t===4 || base/t===5 || base/t===6 || 
-          base/t===7 || base/t===8 || base/t===9 || 
-          base/t===10 || base/t===11 || base/t===12 ||
-          base/t===13 || base/t===14 || base/t===15 || 
-          base/t===16 || base/t===17 || base/t===18 ||
-          base/t===19 || base/t===20 || base/t===21 ||
-          base/t===22 || base/t===23 || base/t===24 || 
-          base/t===25 || base/t===26 || base/t===27 ||
-          base/t===28 || base/t===29 || base/t===30 ||
-          base/t===31 || base/t===32 || base/t===33 ||
-          base/t===34 || base/t===35 || base/t===36 || 
-          base/t===37 || base/t===38 || base/t===39 ||
-          base/t===40 || base/t===41 || base/t===42 ||
-          base/t===43 || base/t===44 || base/t===45 || 
-          base/t===46 || base/t===47 || base/t===48 ||
-          base/t===49 || base/t===50 || base/t===51 ||
-          base/t===52 || base/t===53 || base/t===54 || 
-          base/t===55 || base/t===56 || base/t===57 ||
-          base/t===58 || base/t===59 || base/t===60 ||
-          base/t===61;t++){
+        for(t;(base/t) >= 1 && (base/t) <= 61 && ((base/t) % 1) === 0;t++){
           divides.pop();
           base = base/t;   
           divides.push(t);
