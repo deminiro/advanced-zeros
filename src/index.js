@@ -17,11 +17,16 @@ module.exports = function getZerosCount(number, base) {
           base/t===7 || base/t===8 || base/t===9 || 
           base/t===10 || base/t===11 || base/t===12 ||
           base/t===13 || base/t===14 || base/t===15 || 
-          base/t===16 || base/t===17 || base/t===18 || base/t===19;t++){
+          base/t===16 || base/t===17 || base/t===18 ||
+          base/t===19 || base/t===20 || base/t===21 ||
+          base/t===22 || base/t===23 || base/t===24 || 
+          base/t===25 || base/t===26 || base/t===27 ||
+          base/t===28 || base/t===29 || base/t===30;t++){
           divides.pop();
           base = base/t;   
           divides.push(t);
           divides.push(base);
+          t = 2;
           break;
         }
       }
