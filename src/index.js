@@ -1,23 +1,26 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
- if(number>=1 && number<=10^7 && base>=2 && base<=256){
+ f(number>=1 && number<=10^7 && base>=2 && base<=256){
     
     var divides = [];
     var j = 1;
     var i = 2;
-    for(var countOfTwo = 0,j;i<base&&j<20;j++){
+    let t = 2;
+    for(var countOfTwo = 0,j;i<base&&j<20&&t<base;j++){
     if(base % 2 === 1){
-      i++;
+      t++;
+      
       if(j<=19){
-        for(var k=3;
-          base/k===1 || base/k===2 || base/k===3 || 
-          base/k===4 || base/k===5 || base/k===6 || 
-          base/k===7 || base/k===8 || base/k===9 || 
-          base/k===10 || base/k===11 || base/k===12 ||
-          base/k===13 || base/k===14 || base/k===15 || 
-          base/k===16 || base/k===17 || base/k===18 || base/k===19;k+=2){
-          base = base/k;   
-          divides.push(i);
+        for(t;
+          base/t===1 || base/t===2 || base/t===3 || 
+          base/t===4 || base/t===5 || base/t===6 || 
+          base/t===7 || base/t===8 || base/t===9 || 
+          base/t===10 || base/t===11 || base/t===12 ||
+          base/t===13 || base/t===14 || base/t===15 || 
+          base/t===16 || base/t===17 || base/t===18 || base/t===19;t++){
+          divides.pop();
+          base = base/t;   
+          divides.push(t);
           divides.push(base);
           break;
         }
