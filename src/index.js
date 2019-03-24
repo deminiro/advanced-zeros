@@ -80,7 +80,7 @@ module.exports = function getZerosCount(number, base) {
       countOfAnother+= Math.floor(number/anotherNumbers);
     }
     if(h>=2){
-      srsb = Math.floor(countOfAnother/2);
+      srsb = Math.floor(countOfAnother/h);
     }else{
       srsb = countOfAnother;
     }
