@@ -66,13 +66,24 @@ module.exports = function getZerosCount(number, base) {
     divides.sort(function(a, b) {
       return b - a;
     });
+
+    for(h=1, gh=1;gh<=divides.length;gh++){
+      if(divides[0] === divides[gh]){
+        h++;
+      }
+    }
+
     const srsa = Math.floor(countMultiplyOfTwo/countOfTwo);//Полученное число(29строка) из цикла делим на кол-во двоек с base
     let countOfAnother = 0;
     
-    for(another=divides[0];another<=number;another*=divides[0]){
-      countOfAnother+= Math.floor(number/another);
+    for(anotherNumbers=divides[0];anotherNumbers<=number;anotherNumbers*=divides[0]){
+      countOfAnother+= Math.floor(number/anotherNumbers);
     }
-    srsb = countOfAnother;
+    if(h>=2){
+      srsb = Math.floor(countOfAnother/2);
+    }else{
+      srsb = countOfAnother;
+    }
 
     const numbers = [srsa, srsb];
 
