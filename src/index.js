@@ -28,7 +28,11 @@ module.exports = function getZerosCount(number, base) {
           base/t===40 || base/t===41 || base/t===42 ||
           base/t===43 || base/t===44 || base/t===45 || 
           base/t===46 || base/t===47 || base/t===48 ||
-          base/t===49 || base/t===50 || base/t===51;t++){
+          base/t===49 || base/t===50 || base/t===51 ||
+          base/t===52 || base/t===53 || base/t===54 || 
+          base/t===55 || base/t===56 || base/t===57 ||
+          base/t===58 || base/t===59 || base/t===60 ||
+          base/t===61;t++){
           divides.pop();
           base = base/t;   
           divides.push(t);
