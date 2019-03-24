@@ -1,37 +1,51 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
-  if(number>=1 && number<=10^7 && base>=2 && base<=256){
+ if(number>=1 && number<=10^7 && base>=2 && base<=256){
     
     var divides = [];
     var j = 1;
     var i = 2;
-    for(j;i<base&&j<20;j++){
+    for(var countOfTwo = 0,j;i<base&&j<20;j++){
     if(base % 2 === 1){
       i++;
-      if(i<20){
-        for(var k=3;base/k % 2 === 0;k+=2){
-        divides.push(base/k);
-        break;
+      if(j<=19){
+        for(var k=3;
+          base/k===1 || base/k===2 || base/k===3 || 
+          base/k===4 || base/k===5 || base/k===6 || 
+          base/k===7 || base/k===8 || base/k===9 || 
+          base/k===10 || base/k===11 || base/k===12 ||
+          base/k===13 || base/k===14 || base/k===15 || 
+          base/k===16 || base/k===17 || base/k===18 || base/k===19;k+=2){
+          base = base/k;   
+          divides.push(i);
+          divides.push(base);
+          break;
         }
       }
-      else if(i>=20){
-        divides.push(base);
+    }
+    else{
+      if(divides.length>1){
+        divides.pop();
       }
-    
-    }else{
       base = Math.floor(base/i);
       divides.push(i);
+      divides.push(base);
+      countOfTwo++;
     }
     }
-    let countOfTwo = 0;
+
+    var countMultiplyOfTwo = 0;
     for(two=2;two<=number;two*=2){
     
-      countOfTwo+= Math.floor(number/two);
+      countMultiplyOfTwo+= Math.floor(number/two);
     } 
-
-    const srsa = Math.floor(countOfTwo/1);//Полученное число(29строка) из цикла делим на кол-во двоек с base
+    divides.sort(function(a, b) {
+      return b - a;
+    });
+    const srsa = Math.floor(countMultiplyOfTwo/countOfTwo);//Полученное число(29строка) из цикла делим на кол-во двоек с base
     let countOfAnother = 0;
-    for(another=divides[1];another<=number;another*=divides[1]){
+    
+    for(another=divides[0];another<=number;another*=divides[0]){
       countOfAnother+= Math.floor(number/another);
     }
     srsb = countOfAnother;
@@ -42,6 +56,6 @@ module.exports = function getZerosCount(number, base) {
       return b - a;
     });
 
-    return numbers[0];
+    return numbers[1];
 }
 }
