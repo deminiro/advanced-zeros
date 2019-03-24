@@ -1,12 +1,12 @@
 module.exports = function getZerosCount(number, base) {
   // your implementation
- f(number>=1 && number<=10^7 && base>=2 && base<=256){
+ if(number>=1 && number<=10^7 && base>=2 && base<=256){
     
     var divides = [];
     var j = 1;
     var i = 2;
     let t = 2;
-    for(var countOfTwo = 0,j;i<base&&j<20&&t<base;j++){
+    for(var countOfTwo = 0,j;i<base&&j<21&&t<base;j++){
     if(base % 2 === 1){
       t++;
       
@@ -24,6 +24,9 @@ module.exports = function getZerosCount(number, base) {
           divides.push(base);
           break;
         }
+      }
+      else if(j===20&&divides.length===0){
+        divides.push(base);
       }
     }
     else{
